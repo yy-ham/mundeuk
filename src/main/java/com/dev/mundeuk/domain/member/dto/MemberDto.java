@@ -12,6 +12,5 @@ public class MemberDto {
     private String id;
     private String password;
     private String name;
-    private LocalDate joinDate;
 
 }
