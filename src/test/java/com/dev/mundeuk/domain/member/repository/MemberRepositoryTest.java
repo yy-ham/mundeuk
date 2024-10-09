@@ -1,7 +1,6 @@
-package com.dev.mundeuk.member;
+package com.dev.mundeuk.domain.member.repository;
 
 import com.dev.mundeuk.domain.member.entity.Member;
-import com.dev.mundeuk.domain.member.repository.MemberRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
