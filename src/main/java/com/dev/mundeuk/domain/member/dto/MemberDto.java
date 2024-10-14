@@ -25,7 +25,6 @@ public class MemberDto {
     @NotEmpty(message = "비밀번호를 입력해주세요.")
     @Pattern(regexp = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[!@#$%^&*()])[a-zA-Z\\d!@#$%^&*()]{8,16}$",
             message = "비밀번호는 영문, 숫자, 특수문자를 조합하여 8자 이상 16자 이하이어야 합니다.")
-//    @Length(min = 8, max = 16, message = "비밀번호는 8자이상 16자 이하로 입력해주세요.")
     private String password;
 
 }

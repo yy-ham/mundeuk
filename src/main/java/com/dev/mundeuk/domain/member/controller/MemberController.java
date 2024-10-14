@@ -31,19 +31,14 @@ public class MemberController {
     public String join(@Valid MemberDto memberDto, BindingResult bindingResult, Model model) {
 
         if(bindingResult.hasErrors()) {
-            System.out.println(bindingResult.toString());
-            System.out.println("-------");
-            System.out.println(bindingResult.getFieldError().getDefaultMessage());
             return "member/join";
         }
 
         try {
-            System.out.println(memberDto);
             Member member = Member.toEntity(memberDto, passwordEncoder);
             memberService.join(member);
         } catch (IllegalStateException e) {
             model.addAttribute("errorMessage", e.getMessage());
-            System.out.println(e.getMessage());
             return "member/join";
         }
 
