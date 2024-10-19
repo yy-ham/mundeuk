@@ -21,6 +21,7 @@ public class MemberController {
     private final MemberService memberService;
     private final PasswordEncoder passwordEncoder;
 
+    // 회원가입
     @GetMapping("/join")
     public String join(Model model) {
         model.addAttribute("memberDto", new MemberDto());
@@ -43,6 +44,18 @@ public class MemberController {
         }
 
         return "redirect:/";
+    }
+
+    // 로그인
+    @GetMapping("/login")
+    public String login() {
+        return "member/login";
+    }
+
+    @GetMapping("/login/error")
+    public String login(Model model) {
+        model.addAttribute("errorMessage", "아이디 또는 비밀번호를 확인해주세요.");
+        return "member/login";
     }
 
 }

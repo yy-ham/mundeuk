@@ -3,13 +3,19 @@ package com.dev.mundeuk.domain.member.service;
 import com.dev.mundeuk.domain.member.entity.Member;
 import com.dev.mundeuk.domain.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class MemberService {
+public class MemberService implements UserDetailsService {
 
     private final MemberRepository memberRepository;
 
@@ -27,4 +33,16 @@ public class MemberService {
                 });
     }
 
+    //로그인
+    @Override
+    public UserDetails loadUserByUsername(String id) throws UsernameNotFoundException {
+        Optional<Member> member = Optional.ofNullable(memberRepository.findById(id)
+                .orElseThrow(() -> new UsernameNotFoundException(id)));
+
+        return User.builder()
+                .username(member.get().getId())
+                .password(member.get().getPassword())
+                .roles("USER")
+                .build();
+    }
 }
