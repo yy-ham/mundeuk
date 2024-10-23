@@ -45,7 +45,7 @@ class MemberControllerTest {
     public void loginSuccess() throws Exception {
         String id = "test@test.com";
         String password = "test1234!@#";
-        Member member = this.createMember(id, password);
+        this.createMember(id, password);
 
         ResultActions resultActions = mockMvc.perform(MockMvcRequestBuilders.post("/member/login")
                 .param("id", id)
