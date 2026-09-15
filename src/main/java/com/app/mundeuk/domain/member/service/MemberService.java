@@ -1,5 +1,6 @@
 package com.app.mundeuk.domain.member.service;
 
+import com.app.mundeuk.domain.member.dto.MemberRequestDto;
 import com.app.mundeuk.domain.member.dto.MemberResponseDto;
 import com.app.mundeuk.domain.member.entity.Member;
 import com.app.mundeuk.domain.member.repository.MemberRepository;
@@ -20,9 +21,21 @@ public class MemberService {
 
     // 회원 가입
     @Transactional
-    public Long join(Member member) {
+    public MemberResponseDto signUp(MemberRequestDto requestDto) {
+        // 1. 회원 중복 확인
+        if (validateDuplicateMember(requestDto.getEmail())) {
+            throw new IllegalArgumentException("이미 가입된 이메일입니다.");
+        }
+
+        // 2. DTO -> Entity 변환
+        Member member = requestDto.toEntity();
+
+        // 3. 회원가입
         memberRepository.save(member);
-        return member.getId();
+        
+        // 4. Entity -> DTO 변환
+        MemberResponseDto responseDto = MemberResponseDto.fromEntity(member);
+        return responseDto;
     }
 
     // 전체 회원 조회
@@ -49,6 +62,11 @@ public class MemberService {
     public Long deleteMember(Member member) {
         memberRepository.delete(member);
         return member.getId();
+    }
+
+    // 회원 중복 확인
+    public boolean validateDuplicateMember(String email) {
+        return memberRepository.existsByEmail(email);
     }
 
 }

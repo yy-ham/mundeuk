@@ -2,6 +2,7 @@ package com.app.mundeuk.domain.member.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 
 import java.time.LocalDateTime;
 
@@ -12,10 +13,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor // Builder 사용 시 필수
 @ToString
 @NoArgsConstructor
+@DynamicInsert
 @Table(name = "member")
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_member")
+    @SequenceGenerator(name = "seq_member", sequenceName = "seq_member", allocationSize = 1)
     private Long id;
 
     private String email;

@@ -29,4 +29,14 @@ public class MemberRepository {
     public void delete(Member member) {
         em.remove(member);
     }
+
+    // 이메일 중복 확인
+    public boolean existsByEmail(String email) {
+        List<Long> results = em.createQuery("select m.id from Member m where m.email = :email", Long.class)
+                .setParameter("email", email)
+                .setMaxResults(1)
+                .getResultList();
+        return !results.isEmpty();
+    }
+
 }
