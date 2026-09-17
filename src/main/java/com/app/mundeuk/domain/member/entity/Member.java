@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor // Builder 사용 시 필수
 @ToString
 @NoArgsConstructor
-@DynamicInsert
 @Table(name = "member")
 public class Member {
 
@@ -46,22 +45,23 @@ public class Member {
         LocalDateTime now = LocalDateTime.now();
         this.createdAt = now;
         this.updatedAt = now;
+
+        if (this.profileImage == null) {
+            this.profileImage = "default.jpg";
+        }
+
+        if (this.activeYN == null) {
+            this.activeYN = "Y";
+        }
+
+        if (this.roleType == null) {
+            this.roleType = RoleType.USER;
+        }
     }
 
     @PreUpdate
     public void preUpdate() {
         this.updatedAt = LocalDateTime.now();
     }
-
-//    public static Member toEntity(MemberDto memberDto, PasswordEncoder passwordEncoder) {
-//        Member member = new Member();
-//        member.setId(memberDto.getId());
-//        String password = passwordEncoder.encode(memberDto.getPassword());
-//        member.setPassword(password);
-//        member.setName(memberDto.getName());
-//        member.setJoinDate(LocalDate.now());
-//        member.setRole(Role.ROLE_USER);
-//        return member;
-//    }
 
 }
