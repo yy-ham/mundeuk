@@ -1,0 +1,98 @@
+/* 회원가입 페이지 전체 컨테이너 */
+.signup-container {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 상단 로고 */
+.signup-header {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+
+    position: relative; /* 추가: z-index를 적용하기 위한 필수 속성 */
+    z-index: 10;        /* 추가: 다른 요소들보다 레이어를 위로 띄움 */
+}
+
+.logo-text {
+    color: #5B4DFF;
+    font-size: 26px;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1.5px;
+}
+
+.logo-text a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모인 h1(.logo-text)의 색상을 그대로 물려받음 */
+}
+
+/* 메인 콘텐츠 영역 (화면 중앙 정렬) */
+.signup-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    margin-top: -60px; /* 로고 높이 보정 */
+}
+
+/* 환영 인사 텍스트 */
+.welcome-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111111;
+    text-align: center;
+    line-height: 1.4; /* 두 줄 텍스트 간격 조정 */
+    margin-bottom: 40px;
+}
+
+/* 이메일 회원가입 버튼 */
+.btn-primary {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    background-color: #5B4DFF;
+    color: #ffffff;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    position: relative;
+    margin-bottom: 20px;
+    transition: opacity 0.2s;
+}
+
+.btn-primary:active {
+    opacity: 0.8;
+}
+
+.email-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px;
+}
+
+/* 하단 로그인 안내 영역 */
+.login-prompt-area {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #888888;
+}
+
+.login-link {
+    color: #5B4DFF;
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+}

@@ -1,0 +1,81 @@
+/* 상단바 전체 영역 (위치 고정 및 배경) */
+.top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    box-sizing: border-box;
+    z-index: 100;
+}
+
+/* 메뉴 목록 정렬 및 기본 속성 초기화 */
+.top-nav ul {
+    list-style: none; /* 기본 점 기호 제거 */
+    margin: 0;
+    padding: 0 20px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center; /* 세로 가운데 정렬 */
+}
+
+/* 메뉴 사이에만 구분선(|) 자동 추가 */
+.top-nav li:not(:last-child)::after {
+    content: "|";
+    color: #e0e0e0;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+/* 메뉴 링크 텍스트 스타일 */
+.top-nav a {
+    text-decoration: none;
+    color: #b3b3b3;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* 현재 선택된 활성 메뉴 */
+.top-nav a.active {
+    color: #111111;
+}
+
+/* 하단 네비게이션 바 전체 컨테이너 */
+.bottom-nav {
+    position: absolute; /* 부모인 .mobile-container를 기준으로 위치 고정 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff; /* 배경을 흰색으로 지정 */
+    border-top: 1px solid #e0e0e0; /* 상단 연한 회색 구분선 */
+    display: flex;
+    justify-content: space-around; /* 3개의 아이템을 동일한 간격으로 배치 */
+    align-items: center;
+}
+
+/* 개별 네비게이션 메뉴 버튼 */
+.nav-item {
+    display: flex;
+    flex-direction: column; /* 아이콘 아래에 텍스트가 오도록 세로 배치 */
+    align-items: center;
+    text-decoration: none; /* a 태그 밑줄 제거 */
+    color: #999999; /* 기본 상태: 회색 */
+    font-size: 11px;
+    font-weight: 500;
+    gap: 3px; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+/* 아이콘 크기 조정 */
+.nav-item svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+/* 현재 선택된(활성화된) 메뉴의 스타일 */
+.nav-item.active {
+    color: #111111; /* 텍스트와 아이콘을 검은색으로 강조 */
+}

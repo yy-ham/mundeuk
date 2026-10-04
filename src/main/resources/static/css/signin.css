@@ -1,0 +1,103 @@
+/* 로그인 페이지 전체 컨테이너 */
+.login-container {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 상단 로고 (참고 이미지처럼 좌측 상단 배치) */
+.login-header {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-start;
+
+    position: relative; /* 추가: z-index를 적용하기 위한 필수 속성 */
+    z-index: 10;        /* 추가: 다른 요소들보다 레이어를 위로 띄움 */
+}
+
+/* 로고 텍스트 스타일 */
+.logo-text {
+    color: #5B4DFF; /* 요청하신 메인 컬러 */
+    font-size: 26px;
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: -1.5px;
+}
+
+.logo-text a {
+    text-decoration: none; /* 밑줄 제거 */
+    color: inherit; /* 부모인 h1(.logo-text)의 색상을 그대로 물려받음 */
+}
+
+/* 로그인 메인 콘텐츠 영역 (화면 중앙 정렬) */
+.login-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    margin-top: -60px; /* 로고가 차지한 높이만큼 살짝 위로 올려서 정중앙으로 맞춤 */
+}
+
+/* '로그인' 타이틀 */
+.login-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 40px;
+}
+
+/* 버튼 공통 레이아웃 */
+.btn-login {
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    margin-bottom: 20px;
+    transition: opacity 0.2s;
+    text-decoration: none;
+}
+
+.btn-login:active {
+    opacity: 0.8; /* 클릭 시 살짝 투명해지는 효과 */
+}
+
+/* 이메일 로그인 버튼 스타일 */
+.email-login {
+    background-color: #5B4DFF; /* 요청하신 메인 컬러 */
+    color: #ffffff;
+}
+
+/* 버튼 안의 이메일 아이콘 위치 고정 */
+.email-icon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 20px; /* 좌측 여백 */
+}
+
+/* 하단 회원가입 영역 */
+.signup-area {
+    margin-top: 10px;
+    font-size: 13px;
+    color: #888888;
+}
+
+.signup-link {
+    color: #5B4DFF; /* 메인 컬러로 포인트 */
+    text-decoration: none;
+    font-weight: 700;
+    margin-left: 5px;
+}

@@ -1,0 +1,148 @@
+/* 상단 로그아웃 영역 */
+.header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px;
+}
+.signout-btn {
+    background: none;
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+}
+.signout-btn:hover { background-color: #f9f9f9; }
+
+/* 프로필 정보 영역 */
+.profile-section { padding: 0 16px; }
+.profile-img {
+    width: 80px;
+    height: 80px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+.profile-img svg { width: 45px; height: 45px; fill: #999; }
+
+.name-area { display: flex; align-items: center; gap: 6px; margin-bottom: 4px; }
+.name { font-size: 22px; font-weight: 800; }
+.badge {
+    width: 16px;
+    height: 16px;
+    background-color: #000;
+    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.email { color: #888; font-size: 13px; margin-bottom: 16px; }
+
+.follow-info { font-size: 13px; color: #888; display: flex; margin-bottom: 24px; }
+.follow-info span { font-weight: bold; color: #333; margin-left: 4px; }
+.divider { margin: 0 8px; color: #ddd; }
+
+/* 프로필 액션 버튼 영역 */
+.action-buttons { display: flex; gap: 8px; margin-bottom: 24px; }
+.btn {
+    flex: 1;
+    padding: 10px 0;
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+.btn-icon {
+    width: 44px;
+    background-color: #f8f8f8;
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.btn-icon svg { width: 20px; height: 20px; fill: #555; }
+
+/* 통계 영역 */
+.stats-section {
+    display: flex;
+    border-top: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+.stat-box {
+    flex: 1;
+    text-align: center;
+    border-right: 1px solid #f0f0f0;
+}
+.stat-box:last-child { border-right: none; }
+.stat-num { font-size: 18px; font-weight: 800; display: block; margin-bottom: 6px; color: #000; }
+.stat-label { font-size: 12px; color: #888; }
+
+/* 보관함 영역 */
+.library-section { padding: 0 16px 20px; }
+.section-title { font-size: 18px; font-weight: 800; margin-bottom: 20px; }
+.library-grid { display: flex; justify-content: space-between; padding: 0 10px; }
+.library-item { display: flex; flex-direction: column; align-items: center; gap: 10px; cursor: pointer; }
+.library-icon {
+    width: 64px;
+    height: 64px;
+    background-color: #f8f8f8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.library-icon svg { width: 28px; height: 28px; fill: #aaa; }
+.library-label { font-size: 13px; font-weight: 500; color: #333; }
+
+/* 하단 네비게이션 바 전체 컨테이너 */
+.bottom-nav {
+    position: absolute; /* 부모인 .mobile-container를 기준으로 위치 고정 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff; /* 배경을 흰색으로 지정 */
+    border-top: 1px solid #e0e0e0; /* 상단 연한 회색 구분선 */
+    display: flex;
+    justify-content: space-around; /* 3개의 아이템을 동일한 간격으로 배치 */
+    align-items: center;
+}
+
+/* 개별 네비게이션 메뉴 버튼 */
+.nav-item {
+    display: flex;
+    flex-direction: column; /* 아이콘 아래에 텍스트가 오도록 세로 배치 */
+    align-items: center;
+    text-decoration: none; /* a 태그 밑줄 제거 */
+    color: #999999; /* 기본 상태: 회색 */
+    font-size: 11px;
+    font-weight: 500;
+    gap: 3px; /* 아이콘과 텍스트 사이의 간격 */
+}
+
+/* 아이콘 크기 조정 */
+.nav-item svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+/* 현재 선택된(활성화된) 메뉴의 스타일 */
+.nav-item.active {
+    color: #111111; /* 텍스트와 아이콘을 검은색으로 강조 */
+}

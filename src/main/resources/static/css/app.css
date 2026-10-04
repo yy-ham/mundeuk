@@ -1,0 +1,23 @@
+/* 웹 브라우저 전체 배경 (PC에서 보이는 바깥 여백) */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #f0f0f0; /* PC에서 볼 때 앱 바깥쪽의 바탕색 */
+}
+
+/* 실제 앱 화면 컨테이너 */
+.container {
+    width: 100%;              /* 기본적으로 부모 넓이를 100% 채움 (모바일용) */
+    max-width: 393px;         /* 단, 아무리 커져도 393px을 넘지 않음 (PC용) */
+    height: 100%;
+    margin: 0 auto;           /* PC 화면에서 컨테이너를 정중앙에 배치 */
+    background-color: #ffffff;/* 실제 앱의 배경색 */
+    position: relative;
+    overflow-x: hidden;       /* 가로 스크롤 방지 */
+
+    /* PC 화면에서 앱 영역이 잘 보이도록 옅은 그림자 추가 (선택 사항) */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+

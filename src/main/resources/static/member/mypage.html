@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="/css/app.css"/>
+    <link rel="stylesheet" href="/css/mypage.css"/>
+</head>
+<body>
+    <div class="container">
+      <!-- 상단 로그아웃 버튼 -->
+      <header class="header">
+        <button class="signout-btn" id="btnSignOut">로그아웃</button>
+      </header>
+
+      <!-- 프로필 영역 -->
+      <section class="profile-section">
+        <div class="profile-img">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        </div>
+
+        <div class="name-area">
+          <h1 class="name">닉네임</h1>
+          <div class="badge">w</div>
+        </div>
+        <p class="email">이메일</p>
+
+        <div class="follow-info">
+          팔로워 <span>0</span> <span class="divider">|</span> 팔로잉 <span>0</span>
+        </div>
+
+        <div class="action-buttons">
+          <button class="btn">프로필 수정</button>
+          <button class="btn">프로필 공유</button>
+          <button class="btn-icon">
+            <svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- 통계 영역 -->
+      <section class="stats-section">
+        <div class="stat-box">
+          <span class="stat-num">6</span>
+          <span class="stat-label">평가</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">0</span>
+          <span class="stat-label">코멘트</span>
+        </div>
+        <div class="stat-box">
+          <span class="stat-num">0</span>
+          <span class="stat-label">컬렉션</span>
+        </div>
+      </section>
+
+      <!-- 보관함 영역 -->
+      <section class="library-section">
+        <h2 class="section-title">보관함</h2>
+        <div class="library-grid">
+          <div class="library-item">
+            <div class="library-icon">
+              <svg viewBox="0 0 24 24"><path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z"/></svg>
+            </div>
+            <span class="library-label">영화</span>
+          </div>
+          <div class="library-item">
+            <div class="library-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 3H3c-1.11 0-2 .89-2 2v12c0 1.1.89 2 2 2h5v2h8v-2h5c1.1 0 1.99-.9 1.99-2L23 5c0-1.11-.9-2-2-2zm0 14H3V5h18v12z"/></svg>
+            </div>
+            <span class="library-label">시리즈</span>
+          </div>
+          <div class="library-item">
+            <div class="library-icon">
+              <svg viewBox="0 0 24 24"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM9 4h2v5l-1-.75L9 9V4zm9 16H6V4h1v9l3-2.25L13 13V4h5v16z"/></svg>
+            </div>
+            <span class="library-label">책</span>
+          </div>
+          <div class="library-item">
+            <div class="library-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm8 16H5v-6h6v6zm0-8H5V5h6v6zm8 8h-6v-6h6v6zm0-8h-6V5h6v6z"/></svg>
+            </div>
+            <span class="library-label">웹툰</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- 하단 네비게이션 바 -->
+      <nav class="bottom-nav">
+        <a href="/" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          <span>홈</span>
+        </a>
+        <a href="/search" class="nav-item">
+          <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <span>검색</span>
+        </a>
+        <a href="/mypage" class="nav-item active">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span>마이페이지</span>
+        </a>
+      </nav>
+
+    </div>
+
+    <script src="/js/mypage.js"></script>
+</body>
+</html>
