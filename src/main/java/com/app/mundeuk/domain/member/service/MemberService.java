@@ -38,6 +38,22 @@ public class MemberService {
         return responseDto;
     }
 
+    // 로그인
+    public MemberResponseDto signIn(MemberRequestDto requestDto) {
+        // 1. 이메일 확인
+        Member member = memberRepository.findByEmail(requestDto.getEmail())
+                .orElseThrow(() -> new IllegalArgumentException("가입되지 않은 이메일입니다."));
+
+        // 2. 비밀번호 확인
+        if (!member.getPassword().equals(requestDto.getPassword())) {
+            throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
+        }
+
+        // 3. Entity -> DTO 변환
+        MemberResponseDto responseDto = MemberResponseDto.fromEntity(member);
+        return responseDto;
+    }
+
     // 전체 회원 조회
     public List<MemberResponseDto> findMembers() {
         // 1. 조회

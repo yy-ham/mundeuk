@@ -3,6 +3,9 @@ package com.app.mundeuk.domain.member.controller;
 import com.app.mundeuk.domain.member.dto.MemberRequestDto;
 import com.app.mundeuk.domain.member.dto.MemberResponseDto;
 import com.app.mundeuk.domain.member.service.MemberService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,5 +34,36 @@ public class MemberController {
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
 
+    // 로그인
+    @PostMapping("/signin")
+    public ResponseEntity<String> signIn(@RequestBody MemberRequestDto requestDto, HttpSession session) {
+        MemberResponseDto responseDto = memberService.signIn(requestDto);
+
+        if (responseDto != null) {
+            // 세션에 로그인 유저 정보 저장
+            session.setAttribute("loginUser", responseDto);
+            return ResponseEntity.ok("로그인에 성공했습니다.");
+        }
+
+        return ResponseEntity.status(401).body("이메일 또는 비밀번호가 일치하지 않습니다.");
+    }
+    
+    // 로그아웃
+    @PostMapping("/signout")
+    public ResponseEntity<String> signOut(HttpSession session, HttpServletResponse response) {
+        System.out.println("로그아웃!!");
+
+        // 1. 서버 세션 파기
+        if (session != null) {
+            session.invalidate();
+        }
+
+        // 2. 브라우저 쿠키(JSESSIONID) 강제 만료 처리
+        Cookie cookie = new Cookie("JSESSIONID", null);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        response.addCookie(cookie);
+        return ResponseEntity.ok("로그아웃 되었습니다.");
+    }
 
 }
