@@ -136,7 +136,6 @@ function renderBookList() {
     displayData.forEach(item => {
         // API 응답 데이터 가공 (연도 추출, 저자 배열 문자열화, 표지 이미지 대체)
         const year = item.datetime.substring(0, 4);
-
         const authors = item.authors && item.authors.length > 0 ? item.authors.join(', ') : '';
         const thumbnail = item.thumbnail || 'https://via.placeholder.com/120x170?text=No+Image';
 
@@ -152,6 +151,14 @@ function renderBookList() {
                 <span class="meta">${item.publisher} · ${year}</span>
             </div>
         `;
+
+        // 책 선택 시 상세 페이지로 이동
+        li.addEventListener('click', () => {
+            sessionStorage.setItem('selectedBook', JSON.stringify(item));
+            sessionStorage.setItem('contentType', JSON.stringify('book'));
+            window.location.href = 'detail-book.html';
+        });
+
         bookList.appendChild(li);
     });
 

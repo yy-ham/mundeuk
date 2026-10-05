@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>책 정보</title>
+    <link rel="stylesheet" href="../css/app.css"/>
+    <link rel="stylesheet" href="../css/detail-book.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="detail-container">
+            <!-- 상단 헤더 -->
+            <header class="header">
+                <button type="button" class="btn-back" onclick="history.back()">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                </button>
+                <button class="btn-save" id="btnSave">기록하기</button>
+            </header>
+
+            <!-- 책 요약 (제목, 표지, 저자) -->
+            <section class="book-summary">
+                <h1 class="book-title" id="detail-title"></h1>
+                <div class="book-cover-wrapper">
+                    <img id="detail-cover" src="" alt="책 표지">
+                </div>
+                <p class="book-author" id="detail-author"></p>
+            </section>
+
+            <!-- 탭 메뉴 (단일 탭) -->
+            <div class="detail-tabs">
+                <div class="tab active">책 정보</div>
+            </div>
+
+            <!-- 상세 정보 콘텐츠 -->
+            <section class="book-info-content">
+                <div class="info-section">
+                    <h3>책 소개</h3>
+                    <p id="detail-contents"></p>
+                </div>
+
+                <div class="info-section">
+                    <h3>출판사</h3>
+                    <p id="detail-publisher"></p>
+                </div>
+
+                <div class="info-section">
+                    <h3>ISBN</h3>
+                    <p id="detail-isbn"></p>
+                </div>
+
+                <div class="bottom-info-area">
+                    <a href="#" id="detail-link" target="_blank" class="detail-link">상세 정보</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+<script src="../js/detail-book.js"></script>
+</body>
+</html>
