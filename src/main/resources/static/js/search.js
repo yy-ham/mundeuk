@@ -25,20 +25,41 @@ const contentContainer = document.querySelector('.search-content');
 const bookList = document.getElementById('book-list');
 const headerMoreBtn = document.getElementById('header-more-btn');
 const bottomLoadMore = document.getElementById('bottom-load-more');
+const clearBtn = document.querySelector('.clear-btn');
 
+// 초기 페이지 로드 시 X 버튼 숨기기
+clearBtn.style.display = 'none';
+
+// 입력 감지 이벤트 (글자를 칠 때마다 확인)
+searchInput.addEventListener('input', () => {
+    // 검색창에 텍스트가 한 글자라도 있으면 보여주고, 없으면 숨김
+    if (searchInput.value.length > 0) {
+        clearBtn.style.display = 'block';
+    } else {
+        clearBtn.style.display = 'none';
+    }
+});
+
+// X 버튼 클릭 이벤트
+clearBtn.addEventListener('click', () => {
+    searchInput.value = '';
+    clearBtn.style.display = 'none';
+    searchInput.focus();
+});
+
+// 검색 클릭 이벤트 (엔터키)
 searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') {
         executeSearch();
     }
 });
 
+// 검색 클릭 이벤트 (검색 버튼)
 searchBtn.addEventListener('click', () => {
     executeSearch();
 });
 
-
-
-// --- 검색 실행 공통 함수 ---
+// 검색 실행 공통 함수
 function executeSearch() {
     const keyword = searchInput.value.trim();
 
