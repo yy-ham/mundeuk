@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // 기록하기 버튼 클릭
 document.getElementById('btnSave').addEventListener('click', () => {
     // 로그인 여부 확인
-    const isSignedIn = localStorage.getItem('isSignedIn') === 'true';
+    const isSignedIn = sessionStorage.getItem('isSignedIn') === 'true';
 
     if (!isSignedIn) {
         alert('로그인이 필요한 기능입니다.');

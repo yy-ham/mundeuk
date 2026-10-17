@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // 1. 로그인 상태 UI 변경
-    if (localStorage.getItem('isSignedIn') === 'true') {
+    if (sessionStorage.getItem('isSignedIn') === 'true') {
         document.querySelector('#profile-text').innerText = '마이페이지';
         document.querySelector('#profile-link').href = '/member/mypage.html';
     }

@@ -25,7 +25,7 @@ document.getElementById('btnSignIn').addEventListener('click', () => {
     })
         .then(response => {
             if (response.ok) {
-                localStorage.setItem('isSignedIn', 'true');
+                sessionStorage.setItem('isSignedIn', 'true');
 
                 // 성공 시 홈 화면으로 이동
                 window.location.href = '../index.html';
