@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>기록하기</title>
+    <link rel="stylesheet" href="/css/app.css"/>
+    <link rel="stylesheet" href="/css/review.css"/>
+</head>
+<body>
+    <div class="container">
+        <div class="review-container">
+            <!-- 상단 헤더 -->
+            <header class="header">
+                <button type="button" class="btn-cancel">
+                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                </button>
+                <h1>기록하기</h1>
+                <button class="btn-save" id="btnSave">저장</button>
+            </header>
+
+            <main>
+                <div class="section-title">선택한 콘텐츠</div>
+                <div class="selected-content">
+                    <!-- 샘플 이미지 주소 삽입 -->
+                    <img class="content-image" src="" alt="">
+                    <div class="content-info">
+                        <h3 class="content-title"></h3>
+                        <p class="content-author"></p>
+                        <p class="content-info-detail"></p>
+                    </div>
+                </div>
+
+                <div class="section-title">나의 기록</div>
+                <div class="record-card">
+
+                    <!-- 별점 (스와이프 지원) -->
+                    <div class="input-row">
+                        <label>별점</label>
+                        <div class="rating-area">
+                            <div class="stars-container" id="starsContainer">
+                                <div class="star"><div class="fill" style="width:0%"></div></div>
+                                <div class="star"><div class="fill" style="width:0%"></div></div>
+                                <div class="star"><div class="fill" style="width:0%"></div></div>
+                                <div class="star"><div class="fill" style="width:0%"></div></div>
+                                <div class="star"><div class="fill" style="width:0%"></div></div>
+                            </div>
+                            <span class="rating-value" id="ratingValue">0.0</span>
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <!-- 독서 기간 (시작일 ~ 종료일) -->
+                    <div class="input-row">
+                        <label>기간</label>
+                        <div class="date-range">
+                            <input type="date" id="startDate">
+                            <span>~</span>
+                            <input type="date" id="endDate">
+                        </div>
+                    </div>
+
+                    <hr class="divider">
+
+                    <!-- 전체 감상 (최대 20,000자 설정) -->
+                    <div class="review-area">
+                        <label>감상</label>
+                        <textarea id="reviewText" maxlength="20000" placeholder="감상을 자유롭게 남겨보세요."></textarea>
+                        <div class="char-counter"><span id="charCount">0</span> / 20,000</div>
+                    </div>
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../js/review.js"></script>
+</body>
+</html>

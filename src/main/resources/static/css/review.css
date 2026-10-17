@@ -1,0 +1,279 @@
+/* 리뷰 컨테이너  */
+.review-container {
+    background-color: #FFFFFF;
+    height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 40px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* 헤더 */
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+}
+
+.btn-cancel {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #111111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.btn-save {
+    background: none;
+    border: none;
+    color: #5B4DFF; /* 포인트 색상 적용 */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+}
+
+.btn-text {
+    background: none;
+    border: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: #6b4af0;
+    cursor: pointer;
+}
+
+main {
+    padding: 0 20px 30px 20px;
+}
+
+/* 섹션 타이틀 */
+.section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    margin-top: 24px;
+}
+
+/* 탭 버튼 */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.tab {
+    flex: 1;
+    padding: 12px 0;
+    border-radius: 12px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+    color: #888;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.tab.active {
+    background-color: #7252f2;
+    color: #fff;
+    border-color: #7252f2;
+}
+
+.tab-icon {
+    font-size: 20px;
+}
+
+/* 선택된 콘텐츠 */
+.selected-content {
+    background: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+    border: 1px solid #f0f0f0;
+}
+
+.content-image {
+    width: 50px;
+    height: 70px;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #eee;
+}
+
+.content-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #111;
+    margin-top: 0;
+    /*margin-bottom: 2px;*/
+}
+
+.content-author {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+.content-info-detail {
+    font-size: 12px;
+    color: #888;
+    margin: 0;
+}
+
+/* 나의 기록 카드 */
+.record-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid #f0f0f0;
+}
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.input-row:first-child {
+    padding-top: 0;
+}
+
+.input-row label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    width: 70px;
+}
+
+.divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 0;
+    border: none;
+}
+
+/* 별점 드래그 영역 */
+.rating-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.stars-container {
+    display: flex;
+    gap: 4px;
+    cursor: pointer;
+    touch-action: none;
+    padding: 0;
+}
+
+.star {
+    width: 24px;
+    height: 24px;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23e0e0e0"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') no-repeat center;
+    background-size: contain;
+    position: relative;
+}
+
+.star .fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%237252f2"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>') no-repeat center left;
+    background-size: 24px 24px;
+}
+
+.rating-value {
+    font-size: 14px;
+    font-weight: 700;
+    color: #111;
+    margin-left: 12px;
+    min-width: 28px;
+    text-align: right;
+}
+
+/* 날짜 입력 */
+.date-range {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.date-range input[type="date"] {
+    font-family: inherit;
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.date-range span {
+    color: #888;
+    font-weight: 300;
+}
+
+/* 감상 영역 */
+.review-area {
+    padding-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.review-area label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+textarea {
+    width: 100%;
+    height: 270px;
+    border: none;
+    resize: none;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+}
+
+textarea::placeholder {
+    color: #aaa;
+}
+
+.char-counter {
+    text-align: right;
+    font-size: 12px;
+    color: #888;
+    margin-top: 8px;
+}
