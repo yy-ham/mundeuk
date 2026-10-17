@@ -1,5 +1,8 @@
 package com.app.mundeuk.domain.book.service;
 
+import com.app.mundeuk.domain.book.dto.BookRequestDto;
+import com.app.mundeuk.domain.book.dto.BookResponseDto;
+import com.app.mundeuk.domain.book.entity.Book;
 import com.app.mundeuk.domain.book.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -22,6 +25,23 @@ public class BookService {
 
     public BookService(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
+    }
+
+    // 책 저장
+    public BookResponseDto createBook(BookRequestDto requestDto) {
+        String isbn10 = requestDto.getIsbn10();
+        String isbn13 = requestDto.getIsbn13();
+
+        Book savedBook = bookRepository.findByIsbn10OrIsbn13(isbn10, isbn13)
+                .orElseGet(() -> {
+                    // 책이 저장되어 있지 않는 경우
+                    Book book = requestDto.toEntity();
+                    bookRepository.save(book);
+                    return book;
+                });
+
+        BookResponseDto responseDto = BookResponseDto.fromEntity(savedBook);
+        return responseDto;
     }
 
     // 책 검색
